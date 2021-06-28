@@ -20,20 +20,23 @@ class user_input:
 
     def run(self):
         positionRight = int( self.root.winfo_screenwidth()/2 - 600/2 )
-        positionleft = int( self.root.winfo_screenwidth()/2 - 600/2 )
-        self.root.geometry("{}x{}+{}+{}".format(600,600,positionRight, 150))
+        self.root.geometry("{}x{}+{}+{}".format(650,600,positionRight, 150))
         self.root.configure(bg='black')
         #initializing 
 
-        my_btn = Button(self.root,text="open file",command=self.open)
+        my_btn = Button(self.root,text="open file",command=self.open,bg='black',fg='white',width=20,height=2)
         label1=Label(self.root,text="press confirm button after selection",bg='black',font=("SHOWCARD GOTHIC",20),fg='white')
-        btn=Button(self.root,text="confirm",command=self.root.destroy)
+        btn=Button(self.root,text="confirm",command=self.root.destroy,bg='black',fg='white',width=20,height=2)
+        label2=Label(self.root,text="Welcome to the game\nBeat your friend",bg='black',font=("SHOWCARD GOTHIC",20),fg='white')
+        label3=Label(self.root,text="In this game your friend's photo along with mario's\nphoto will render in 9 holes randomly \n\nyou have to beat your friend's photo from that\n and you will get a score of 10 on every beat\n\nyou will lose if you beat empty holes or mario instead\n\nuse number keys to acess holes \n\n select your friend's photo from bellow button",bg='black',font=("Arial",15),fg='white')
 
         #placing
 
-        my_btn.pack()
-        label1.pack()
-        btn.pack()
+        label2.place(x=170,y=0)
+        label3.place(x=100,y=100)
+        my_btn.place(x=260,y=380)
+        label1.place(x=50,y=430)
+        btn.place(x=260,y=490)
 
         self.root.mainloop()
 
