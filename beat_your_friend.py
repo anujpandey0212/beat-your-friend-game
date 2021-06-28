@@ -1,7 +1,6 @@
 import pygame
 from pygame.locals import *
 from tkinter import *
-from PIL import ImageTk,Image
 from tkinter import filedialog
 import random
 import math
@@ -14,11 +13,13 @@ class user_input:
         self.root=Tk()
 
     def open(self):
+
         global image_location
         self.root.filename=filedialog.askopenfilename(initialdir="/snake_game/resources",title="Select a file",filetypes=(("png files","*.png"),("all files","*.*")))
         image_location = self.root.filename
 
     def run(self):
+
         positionRight = int( self.root.winfo_screenwidth()/2 - 600/2 )
         self.root.geometry("{}x{}+{}+{}".format(650,600,positionRight, 150))
         self.root.configure(bg='black')
@@ -68,7 +69,8 @@ class Game:
         self.holes=holes(self.surface)
         self.score=0
         self.image2=pygame.image.load("resources/mario.png")
-        self.userimage=pygame.image.load(image_location)
+        self.image3=pygame.image.load(image_location)
+        self.image3= pygame.transform.scale(self.image3, (150, 150))
 
     def display_score(self):
         pygame.display.flip()
@@ -81,33 +83,70 @@ class Game:
 
     def render(self):
         global random_value
-        random_value=math.ceil(9*(random.random()))
+        global random_value2
+
+        #this is for user 
+
+        random_value=random.randint(1,9)
+
         if random_value==1:
-            self.surface.blit(self.image2,(53,78))
+            self.surface.blit(self.image3,(53,78))
 
         if random_value==2:
-            self.surface.blit(self.image2,(311,78))
+            self.surface.blit(self.image3,(311,78))
         
         if random_value==3:
-            self.surface.blit(self.image2,(573,78))
+            self.surface.blit(self.image3,(573,78))
 
         if random_value==4:
-            self.surface.blit(self.image2,(53,336))
+            self.surface.blit(self.image3,(53,336))
 
         if random_value==5:
-            self.surface.blit(self.image2,(311,336))
+            self.surface.blit(self.image3,(311,336))
 
         if random_value==6:
-            self.surface.blit(self.image2,(573,336))
+            self.surface.blit(self.image3,(573,336))
 
         if random_value==7:
-            self.surface.blit(self.image2,(53,598))
+            self.surface.blit(self.image3,(53,598))
 
         if random_value==8:
-            self.surface.blit(self.image2,(311,598))
+            self.surface.blit(self.image3,(311,598))
 
         if random_value==9:
+            self.surface.blit(self.image3,(573,598))
+
+        #this is for mario
+
+        random_value2=random.randint(1,9)
+
+        if random_value2==1:
+            self.surface.blit(self.image2,(53,78))
+
+        if random_value2==2:
+            self.surface.blit(self.image2,(311,78))
+        
+        if random_value2==3:
+            self.surface.blit(self.image2,(573,78))
+
+        if random_value2==4:
+            self.surface.blit(self.image2,(53,336))
+
+        if random_value2==5:
+            self.surface.blit(self.image2,(311,336))
+
+        if random_value2==6:
+            self.surface.blit(self.image2,(573,336))
+
+        if random_value2==7:
+            self.surface.blit(self.image2,(53,598))
+
+        if random_value2==8:
+            self.surface.blit(self.image2,(311,598))
+
+        if random_value2==9:
             self.surface.blit(self.image2,(573,598))
+
        
     def play_backgroundmusic(self):
         pygame.mixer.music.load('resources/background_music.mp3')
