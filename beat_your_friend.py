@@ -172,6 +172,7 @@ class Game:
             time.sleep(1)
 
 
+
 if __name__=='__main__':
     open_image=user_input()
     open_image.run()
