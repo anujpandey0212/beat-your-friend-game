@@ -179,4 +179,6 @@ class Game:
 if __name__=='__main__':
     open_image=user_input()
     open_image.run()
+    games=Game()
+    games.run_game()
 
