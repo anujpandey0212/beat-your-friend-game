@@ -190,6 +190,7 @@ class Game:
     def run_game(self):
         running =True
         pause=False
+        time1=1
         while(running):
             for event in pygame.event.get():
                 if event.type==KEYDOWN:
@@ -203,6 +204,7 @@ class Game:
                         if random_value==1:
                             self.score=self.score+10
                             self.play_sound("collision")
+                            time1=time1-0.01
                         else:
                             self.play_sound("game_over")
                             pause=True
@@ -211,6 +213,7 @@ class Game:
                         if random_value==2:
                             self.score=self.score+10
                             self.play_sound("collision")
+                            time1=time1-0.01
                         else:
                             self.play_sound("game_over")
                             pause=True
@@ -219,6 +222,7 @@ class Game:
                         if random_value==3:
                             self.score=self.score+10
                             self.play_sound("collision")
+                            time1=time1-0.01
                         else:
                             self.play_sound("game_over")
                             pause=True
@@ -227,6 +231,7 @@ class Game:
                         if random_value==4:
                             self.score=self.score+10
                             self.play_sound("collision")
+                            time1=time1-0.01
                         else:
                             self.play_sound("game_over")
                             pause=True
@@ -235,6 +240,7 @@ class Game:
                         if random_value==5:
                             self.score=self.score+10
                             self.play_sound("collision")
+                            time1=time1-0.01
                         else:
                             self.play_sound("game_over")
                             pause=True
@@ -243,6 +249,7 @@ class Game:
                         if random_value==6:
                             self.score=self.score+10
                             self.play_sound("collision")
+                            time1=time1-0.01
                         else:
                             self.play_sound("game_over")
                             pause=True
@@ -251,6 +258,7 @@ class Game:
                         if random_value==7:
                             self.score=self.score+10
                             self.play_sound("collision")
+                            time1=time1-0.01
                         else:
                             self.play_sound("game_over")
                             pause=True
@@ -259,6 +267,7 @@ class Game:
                         if random_value==8:
                             self.score=self.score+10
                             self.play_sound("collision")
+                            time1=time1-0.01
                         else:
                             self.play_sound("game_over")
                             pause=True
@@ -267,6 +276,7 @@ class Game:
                         if random_value==9:
                             self.score=self.score+10
                             self.play_sound("collision")
+                            time1=time1-0.01
                         else:
                             self.play_sound("game_over")
                             pause=True
@@ -278,7 +288,7 @@ class Game:
                 self.play()
             else:
                 self.show_gameover()
-            time.sleep(1)
+            time.sleep(time1)
 
 if __name__=='__main__':
     open_image=user_input()
