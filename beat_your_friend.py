@@ -3,7 +3,6 @@ from pygame.locals import *
 from tkinter import *
 from tkinter import filedialog
 import random
-import math
 import time
 
 color=(0,0,0)
@@ -156,6 +155,30 @@ class Game:
         bg=pygame.image.load("resources/background_image.jpeg")
         self.surface.blit(bg,(0,0))
 
+    def play_sound(self,name):
+        if name=="game_over":
+            sound=pygame.mixer.Sound("resources/gameover.wav")
+        if name=="collision":
+            sound=pygame.mixer.Sound("resources/jump.mp3")
+        pygame.mixer.Sound.play(sound)
+
+    def show_gameover(self):
+        self.surface.fill(color)
+        pygame.mixer.music.pause()
+        font = pygame.font.SysFont('SHOWCARD GOTHIC',60)
+        gameover=font.render(f"Game Over",True,(200,200,200))
+        self.surface.blit(gameover,(400,200))
+        font = pygame.font.SysFont('SHOWCARD GOTHIC',30)
+        score=font.render(f"You scored : {self.score}",True,(200,200,200))
+        self.surface.blit(score,(450,280))
+        font = pygame.font.SysFont('SHOWCARD GOTHIC',30)
+        score=font.render(f"Press Enter to restart the game",True,(200,200,200))
+        self.surface.blit(score,(390,450))
+        font = pygame.font.SysFont('SHOWCARD GOTHIC',30)
+        score=font.render(f"Press esc to Exit the game",True,(200,200,200))
+        self.surface.blit(score,(400,360))
+        pygame.display.flip()
+
     def play(self):
         self.surface.fill(color)
         self.render_background()
@@ -166,54 +189,96 @@ class Game:
 
     def run_game(self):
         running =True
+        pause=False
         while(running):
             for event in pygame.event.get():
                 if event.type==KEYDOWN:
                     if event.key==K_ESCAPE:
                         running=False
+                    if event.key==K_RETURN:
+                        pause=False
+                        self.score=0
+                        pygame.mixer.music.unpause()
                     if event.key==K_1:
                         if random_value==1:
                             self.score=self.score+10
+                            self.play_sound("collision")
+                        else:
+                            self.play_sound("game_over")
+                            pause=True
 
                     if event.key==K_2:
                         if random_value==2:
                             self.score=self.score+10
+                            self.play_sound("collision")
+                        else:
+                            self.play_sound("game_over")
+                            pause=True
                     
                     if event.key==K_3:
                         if random_value==3:
                             self.score=self.score+10
+                            self.play_sound("collision")
+                        else:
+                            self.play_sound("game_over")
+                            pause=True
 
                     if event.key==K_4:
                         if random_value==4:
                             self.score=self.score+10
+                            self.play_sound("collision")
+                        else:
+                            self.play_sound("game_over")
+                            pause=True
 
                     if event.key==K_5:
                         if random_value==5:
                             self.score=self.score+10
+                            self.play_sound("collision")
+                        else:
+                            self.play_sound("game_over")
+                            pause=True
 
                     if event.key==K_6:
                         if random_value==6:
                             self.score=self.score+10
+                            self.play_sound("collision")
+                        else:
+                            self.play_sound("game_over")
+                            pause=True
 
                     if event.key==K_7:
                         if random_value==7:
                             self.score=self.score+10
+                            self.play_sound("collision")
+                        else:
+                            self.play_sound("game_over")
+                            pause=True
 
                     if event.key==K_8:
                         if random_value==8:
                             self.score=self.score+10
+                            self.play_sound("collision")
+                        else:
+                            self.play_sound("game_over")
+                            pause=True
 
                     if event.key==K_9:
                         if random_value==9:
                             self.score=self.score+10
+                            self.play_sound("collision")
+                        else:
+                            self.play_sound("game_over")
+                            pause=True
 
                 elif event.type == QUIT:
                     running = False
             
-            self.play()
+            if pause==False:
+                self.play()
+            else:
+                self.show_gameover()
             time.sleep(1)
-
-
 
 if __name__=='__main__':
     open_image=user_input()
