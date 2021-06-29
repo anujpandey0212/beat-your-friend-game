@@ -84,7 +84,7 @@ class Game:
         totalscore=font.render(f"score : {self.score}",True,(200,200,200))
         self.surface.blit(totalscore,(840,350))
         font = pygame.font.SysFont('Arial',30)
-        highscore=font.render(f"score : {int(self.data)}",True,(200,200,200))
+        highscore=font.render(f"highscore : {int(self.data)}",True,(200,200,200))
         self.surface.blit(highscore,(840,380))
 
     def render(self):
