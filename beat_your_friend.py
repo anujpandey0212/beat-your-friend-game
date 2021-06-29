@@ -70,6 +70,10 @@ class Game:
         self.image2=pygame.image.load("resources/mario.png")
         self.image3=pygame.image.load(image_location)
         self.image3= pygame.transform.scale(self.image3, (150, 150))
+        self.file1=open("resources/ewai.txt","r")
+        self.data=self.file1.read()
+        print(self.data)
+        self.file1.close()
 
     def display_score(self):
         pygame.display.flip()
@@ -79,6 +83,9 @@ class Game:
         font = pygame.font.SysFont('Arial',30)
         totalscore=font.render(f"score : {self.score}",True,(200,200,200))
         self.surface.blit(totalscore,(840,350))
+        font = pygame.font.SysFont('Arial',30)
+        highscore=font.render(f"score : {int(self.data)}",True,(200,200,200))
+        self.surface.blit(highscore,(840,380))
 
     def render(self):
         global random_value
@@ -164,6 +171,10 @@ class Game:
 
     def show_gameover(self):
         self.surface.fill(color)
+        if int(self.data)<self.score:
+            f=open('resources/ewai.txt','w')
+            f.write('{}'.format(self.score))
+            f.close()
         pygame.mixer.music.pause()
         font = pygame.font.SysFont('SHOWCARD GOTHIC',60)
         gameover=font.render(f"Game Over",True,(200,200,200))
