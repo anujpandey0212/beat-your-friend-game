@@ -212,7 +212,7 @@ class Game:
                         pause=False
                         self.score=0
                         pygame.mixer.music.unpause()
-                    if event.key==K_1:
+                    if event.key==K_1 or event.key==K_KP1:
                         if random_value==1:
                             self.score=self.score+10
                             self.play_sound("collision")
@@ -221,7 +221,7 @@ class Game:
                             self.play_sound("game_over")
                             pause=True
 
-                    if event.key==K_2:
+                    if event.key==K_2 or event.key==K_KP2:
                         if random_value==2:
                             self.score=self.score+10
                             self.play_sound("collision")
@@ -230,7 +230,7 @@ class Game:
                             self.play_sound("game_over")
                             pause=True
                     
-                    if event.key==K_3:
+                    if event.key==K_3 or event.key==K_KP3:
                         if random_value==3:
                             self.score=self.score+10
                             self.play_sound("collision")
@@ -239,7 +239,7 @@ class Game:
                             self.play_sound("game_over")
                             pause=True
 
-                    if event.key==K_4:
+                    if event.key==K_4 or event.key==K_KP4:
                         if random_value==4:
                             self.score=self.score+10
                             self.play_sound("collision")
@@ -248,7 +248,7 @@ class Game:
                             self.play_sound("game_over")
                             pause=True
 
-                    if event.key==K_5:
+                    if event.key==K_5 or event.key==K_KP5:
                         if random_value==5:
                             self.score=self.score+10
                             self.play_sound("collision")
@@ -257,7 +257,7 @@ class Game:
                             self.play_sound("game_over")
                             pause=True
 
-                    if event.key==K_6:
+                    if event.key==K_6 or event.key==K_KP6:
                         if random_value==6:
                             self.score=self.score+10
                             self.play_sound("collision")
@@ -266,7 +266,7 @@ class Game:
                             self.play_sound("game_over")
                             pause=True
 
-                    if event.key==K_7:
+                    if event.key==K_7 or event.key==K_KP7:
                         if random_value==7:
                             self.score=self.score+10
                             self.play_sound("collision")
@@ -275,7 +275,7 @@ class Game:
                             self.play_sound("game_over")
                             pause=True
 
-                    if event.key==K_8:
+                    if event.key==K_8 or event.key==K_KP8:
                         if random_value==8:
                             self.score=self.score+10
                             self.play_sound("collision")
@@ -284,7 +284,7 @@ class Game:
                             self.play_sound("game_over")
                             pause=True
 
-                    if event.key==K_9:
+                    if event.key==K_9 or event.key==K_KP9:
                         if random_value==9:
                             self.score=self.score+10
                             self.play_sound("collision")
