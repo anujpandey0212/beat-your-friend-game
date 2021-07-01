@@ -175,6 +175,7 @@ class Game:
             f=open('resources/ewai.txt','w')
             f.write('{}'.format(self.score))
             f.close()
+            self.data=self.score
         pygame.mixer.music.pause()
         font = pygame.font.SysFont('SHOWCARD GOTHIC',60)
         gameover=font.render(f"Game Over",True,(200,200,200))
