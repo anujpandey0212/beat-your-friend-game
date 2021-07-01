@@ -171,7 +171,7 @@ class Game:
 
     def show_gameover(self):
         self.surface.fill(color)
-        if int(self.data)<self.score:
+        if int(self.data)>self.score:
             f=open('resources/ewai.txt','w')
             f.write('{}'.format(self.score))
             f.close()
