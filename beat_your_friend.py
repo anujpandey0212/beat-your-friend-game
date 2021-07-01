@@ -182,7 +182,6 @@ class Game:
         font = pygame.font.SysFont('SHOWCARD GOTHIC',30)
         score=font.render(f"You scored : {self.score}",True,(200,200,200))
         self.surface.blit(score,(450,280))
-        self.score=0
         font = pygame.font.SysFont('SHOWCARD GOTHIC',30)
         score=font.render(f"Press Enter to restart the game",True,(200,200,200))
         self.surface.blit(score,(390,450))
