@@ -210,6 +210,7 @@ class Game:
                         running=False
                     if event.key==K_RETURN:
                         pause=False
+                        time1=1
                         self.score=0
                         pygame.mixer.music.unpause()
                     if ((event.key==K_1 or event.key==K_KP1) and pause == False):
